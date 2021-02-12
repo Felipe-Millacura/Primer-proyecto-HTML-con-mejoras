@@ -1,0 +1,10 @@
+*{
+    background: #85d4b7;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#bloque1{
+    background: #ffffff;
+    text-align: center;
+    border: #000000 2px solid;
+}

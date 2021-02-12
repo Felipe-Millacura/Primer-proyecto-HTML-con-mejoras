@@ -1,0 +1,18 @@
+{% extends 'registrar.html' %}
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/verperro.css' %}">
+<link rel="stylesheet" href="{% static 'css/flexboxgrid.min.css' %}">
+<h3>Detalles del perro</h3>
+<img src="{{perros.Foto.url}}" alt="" width="50%">
+<br><br>
+<div id="bloque1" class="col-xs-6">
+Nombre = {{perros.Nombre}}
+<br><br>
+Raza = {{perros.Raza}}
+<br><br>
+Descripcion = {{perros.Descripcion}}
+<br><br>
+Estado = {{perros.Estado}}
+</div>
+{% endblock%}

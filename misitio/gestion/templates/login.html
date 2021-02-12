@@ -1,0 +1,53 @@
+{% load staticfiles %}
+{% load pwa %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% progressive_web_app_meta %}
+    <link rel="stylesheet" href="{% static 'css/logincss.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexboxgrid.min.css' %}">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Iniciar Sesion</title>
+</head>
+<body>
+<form name="login">
+    <div class="imgcontainer">
+      <img src = "{% static 'img/logo.png' %}" alt="Avatar" class="avatar">
+    </div>
+    <div class="container">
+      <input type="text" value="" placeholder="Ingrese Nombre de usuario" name="usuario" required>
+      <input type="password" value="" placeholder="Ingrese Contraseña" name="password" required>
+      <a onclick="Login()" class="boton">Entrar</a> 
+      <a href="{% url 'social:begin' 'facebook' %}" class="boton2">Facebook</a>
+    </div>
+  </form>
+</body>
+<script language="JavaScript"> 
+        function Login(){ 
+        var done=0; 
+        var usuario=document.login.usuario.value; 
+        var password=document.login.password.value;
+        
+        if (usuario== "admin"  && password!="admin") { 
+          alert("Usuario y/o contraseña incorrecta")
+        }
+
+        if (usuario== "admin"  && password=="admin") { 
+        window.location="http://127.0.0.1:8000/administrador";
+        } 
+
+        if (usuario== "usuario"  && password!="usuario") { 
+          alert("Usuario y/o contraseña incorrecta")
+        }
+
+        if (usuario=="usuario" && password=="usuario") { 
+        window.location="http://127.0.0.1:8000/usuario"; 
+        }  
+        } 
+        </script>
+        <script language="Javascript"> 
+        Begin 
+        document.oncontextmenu = function(){return false}
+        </script>
+        </body>
+        </html>

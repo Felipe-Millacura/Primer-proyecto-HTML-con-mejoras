@@ -1,0 +1,14 @@
+{% extends 'registrar.html' %}
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/editarperro.css' %}">
+<link rel="stylesheet" href="{% static 'css/flexboxgrid.min.css' %}">
+<script src="{% static 'js/serviceworker.js' %}"></script>
+<form method='POST' adtion='' enctype='multipart/form-data'>
+<div id="bloque1" class="col-xs-6">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button id="boton" type="submit">Guardar</button>
+</div>
+</form>
+{%  endblock %}

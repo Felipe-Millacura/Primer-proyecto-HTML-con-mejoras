@@ -1,0 +1,10 @@
+{% extends 'registrar_persona.html' %}
+{% block content %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/persona.css' %}">
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button id="boton" type="submit">Guardar</button>
+</form>
+{%  endblock %}

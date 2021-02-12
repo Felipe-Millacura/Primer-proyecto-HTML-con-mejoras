@@ -1,0 +1,27 @@
+{% extends 'registrar.html' %}
+{% block content %}
+{% for a in perritover%}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/listar.css' %}">
+<script src="{% static 'js/push.min.js' %}"></script>
+<body>
+    <script>
+        if('{{a.Estado}}' == 'Disponible'){
+        Push.create('Nueva Notificacion',{
+            body : 'Perro disponible: {{a.Nombre}}',
+            icon : "{{a.Foto.url}}",
+            timeout : 6000,
+            onClick: function(){
+                this.close();
+            }
+        })
+    }
+    </script>
+<b>{{a.Nombre}}</b>
+<br><br>
+<a href='/perro/detalle/{{a.pk}}'>Detalles del perro</a>
+<br><br>
+{%  endfor %}
+<a href="/usuario">Volver a pagina principal</a>
+</body>
+{%  endblock %}

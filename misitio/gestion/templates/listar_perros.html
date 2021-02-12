@@ -1,0 +1,18 @@
+{% extends 'registrar.html' %}
+{% block content %}
+{% for a in perritoo%}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/listar.css' %}">
+<b>{{a.Nombre}}</b>
+<br><br>
+<a href='/perro/detalle/{{a.pk}}'>Detalles del perro</a>
+<br><br>
+<a href='/perro/eliminar/{{a.pk}}'>Eliminar perro</a>
+<br><br>
+<a href='/perro/editar/{{a.pk}}'>Editar perro</a>
+<br><br><br>
+{%  endfor %}
+<br>
+<a href="/perro/new/">Agregar Perro</a><br><br>
+<a href="/administrador">Volver a pagina principal</a>
+{%  endblock %}
